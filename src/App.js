@@ -22,9 +22,6 @@ function App() {
           <Route path='/home'>
            <Shop></Shop>
           </Route>
-          <Route path='/review'>
-            <Review />
-          </Route>
           <Route path='/review/:productKey'>
             <ProductDetails></ProductDetails>
           </Route>
@@ -33,6 +30,9 @@ function App() {
           </Route>
           <Route path='/help'>
              <Help></Help>
+          </Route>
+          <Route path='/review'>
+            <Review />
           </Route>
           <Route exact path ='/'>
             <Shop/>
