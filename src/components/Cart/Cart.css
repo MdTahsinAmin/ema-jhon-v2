@@ -1,0 +1,42 @@
+.cart-continer{
+    text-align: center;
+    border:1px solid darkgray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px darkgrey;
+    background-color: darkslategray;
+    color: #FFF;
+    padding : 30px 30px;
+}
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.cart table {
+    font-size: 15px;
+    text-align: left;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+}
+.total-row {
+    color: #b12704;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+    border-top: 1px solid gray;
+    margin-top: 5px;
+}
+.review-order{
+    margin-top:20px;
+    margin-left:-20px;
+    background-color:#f0c14b;;
+    width: 200px;
+    height: 26px;
+    border: 1px solid dimgray;
+    border-radius: 3px;
+    border-color: #a88734 #9c7e31 #846a29;
+    cursor: pointer;
+    vertical-align: middle;
+    border-width: 1px;
+}

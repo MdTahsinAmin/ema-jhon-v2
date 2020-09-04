@@ -1,0 +1,13 @@
+.reviewItem-section{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-top:5px;
+}
+.information{
+    padding-bottom:5px;
+}
+.text{
+    color: blue;
+    font-weight:400;
+    font-size:18px;
+}

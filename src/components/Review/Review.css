@@ -1,0 +1,11 @@
+.review-section{
+    display:flex;
+    margin-top:5px;
+    margin-left: 5px;
+}
+.ordered-section{
+    width:70%;
+    border-right: 1px solid lightgrey;
+    margin-top:10px;
+    margin-left: 50px;
+}
