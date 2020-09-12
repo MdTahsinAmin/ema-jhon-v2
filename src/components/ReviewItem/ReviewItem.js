@@ -11,7 +11,7 @@ const ReviewItem = (props) => {
                      <img src={img} alt=""/>
                 </div>
                 <div className="col-md-6 information">
-                    <h4 className="text">{name}</h4>
+                     <h4 className="text">{name}</h4>
                     <p>By {seller}</p>
                     <p>Quntity : {quntity}</p>
                     <p>Price :{price}</p>

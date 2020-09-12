@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getDatabaseCart, removeFromDatabaseCart, processOrder } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData';
 import ReviewItem from '../ReviewItem/ReviewItem';
@@ -8,6 +8,16 @@ import Cart from '../Cart/Cart';
 
 import happyImg from '../../images/giphy.gif'
 const Review = () => {
+    
+    const history = useHistory();
+
+    const goToShipment = () =>{
+        
+        history.push('/shipment');
+        
+
+    }
+
 
     const [cart , setCart] = useState([]);
     
@@ -48,13 +58,14 @@ const Review = () => {
            <div className="ordered-section">
                 {
                     cart.map(cart => <ReviewItem cart={cart} key ={cart.key} handleRomveItem={handleRomveItem}></ReviewItem>)
-                }{
+                }
+                {
                     thanks
                 }
            </div>
             <div className='cart-section'>
                <Cart cart={cart}>
-                   <button  onClick={()=>handlePlaceOrder()} className="main-btn">Place Order</button>
+                   <button  onClick={()=>goToShipment()} className="main-btn">Procced Cheackout</button>
                </Cart>
             </div>
         </div>
