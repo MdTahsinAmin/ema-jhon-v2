@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Shop.css'
-import fakeData from '../../fakeData'
 import Product from './Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
@@ -24,19 +23,22 @@ const Shop = () => {
 
            const productKeys = Object.keys(savaData);
 
-           fetch('http://localhost:5000/productsByKeys',{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(productKeys)
-        })
-        .then(response => response.json())
-        .then(data =>setCart(data))
-     },[])
+           if(products.length){
+            const products = productKeys.map(key=>{
+                const product = products.find(product => product.key === key);
+                
+                product.quntity = savaData[key];
+ 
+                return product;
+            })
+            setCart(products);
+           }
+     },[products])
     
     useEffect(()=>{
          fetch('http://localhost:5000/products')
          .then(res => res.json())
-         .then(data=>setProduct(data));
+         .then(data => setProduct(data))
     },[])
 
 

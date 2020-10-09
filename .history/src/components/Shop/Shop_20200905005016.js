@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Shop.css'
+
 import fakeData from '../../fakeData'
 import Product from './Product/Product';
 import Cart from '../Cart/Cart';
@@ -14,7 +15,7 @@ const Shop = () => {
         history.push(`/review`);
     }
    
-     const [products , setProduct] = useState([]);
+     const [products , setProduct] = useState(fakeData);
     
      const [cart, setCart ] = useState([]);
      
@@ -24,20 +25,16 @@ const Shop = () => {
 
            const productKeys = Object.keys(savaData);
 
-           fetch('http://localhost:5000/productsByKeys',{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(productKeys)
-        })
-        .then(response => response.json())
-        .then(data =>setCart(data))
+           const products = productKeys.map(key=>{
+               const product = fakeData.find(product => product.key === key);
+               
+               product.quntity = savaData[key];
+
+               return product;
+           })
+           setCart(products);
      },[])
-    
-    useEffect(()=>{
-         fetch('http://localhost:5000/products')
-         .then(res => res.json())
-         .then(data=>setProduct(data));
-    },[])
+
 
 
     let newCart =[];

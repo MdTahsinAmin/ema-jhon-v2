@@ -10,13 +10,11 @@ const ProductDetails = () => {
     const [product,setProduct] = useState({});
 
     useEffect(()=>{
-         fetch(`http://localhost:5000/products/${productKey}`)
-         .then((response => response.json()))
-         .then(data => setProduct(data))
+         fetch('')
     },[productKey])
 
 
-    //const product = fakeData.find(product => product.key===productKey);
+    const product = fakeData.find(product => product.key===productKey);
     
     //console.log(product);
     const showBtn = false;

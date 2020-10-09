@@ -24,13 +24,14 @@ const Shop = () => {
 
            const productKeys = Object.keys(savaData);
 
-           fetch('http://localhost:5000/productsByKeys',{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(productKeys)
-        })
-        .then(response => response.json())
-        .then(data =>setCart(data))
+           const products = productKeys.map(key=>{
+               const product = fakeData.find(product => product.key === key);
+               
+               product.quntity = savaData[key];
+
+               return product;
+           })
+           setCart(products);
      },[])
     
     useEffect(()=>{

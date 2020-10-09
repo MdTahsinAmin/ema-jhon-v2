@@ -2,9 +2,9 @@ import React from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import './Shipment.css'
-import { Usercontext } from '../../App';
+import { UserContext } from '../../App';
 const Shipment = () => {
-    const [signUser ,setSignUser] = useContext(Usercontext);
+    const [loginUser , setLoginUser] = useContext(UserContext)
 
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => console.log(data);
@@ -12,11 +12,11 @@ const Shipment = () => {
     return (
         <form className="ship-from" onSubmit={handleSubmit(onSubmit)}>
    
-        <input name="name" ref={register({ required: true })} defaultValue={signUser.name}   placeholder="Your Name" />
+        <input name="name" ref={register({ required: true })} defaultValue={loginUser.name}   placeholder="Your Name" />
     
         {errors.name && <span className='error'> Name is required</span>}
 
-        <input name="email" ref={register({ required: true })} defaultValue={signUser.email} placeholder="Your Email Address" />
+        <input name="email" ref={register({ required: true })} defaultValue={loginUser.email} placeholder="Your Email Address" />
         
         {errors.email && <span className='error'> Email is required</span>}
         
